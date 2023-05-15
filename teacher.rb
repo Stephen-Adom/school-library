@@ -10,6 +10,3 @@ class Teacher < Person
     true
   end
 end
-
-teach = Teacher.new(age: 20, specialization: 'teach')
-puts teach.can_use_services?

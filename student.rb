@@ -10,6 +10,3 @@ class Student < Person
     '¯(ツ)/¯'
   end
 end
-
-student = Student.new(age: 19, classroom: 'class 1')
-puts student.can_use_services?

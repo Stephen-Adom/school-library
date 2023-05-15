@@ -18,5 +18,3 @@ class Person
     @age >= 18
   end
 end
-
-person = Person.new(name: 'stephen', age: 20, parent_permission: true)
