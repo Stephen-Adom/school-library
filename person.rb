@@ -20,4 +20,3 @@ class Person
 end
 
 person = Person.new(name: 'stephen', age: 20, parent_permission: true)
-puts person.can_use_services?
