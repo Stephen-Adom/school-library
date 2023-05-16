@@ -47,6 +47,10 @@ An OOP school library with ruby
 - **Person Class**
 - **Teacher Class**
 - **Student Class**
+- **Nameable Class**
+- **Base Decorator Class**
+- **Capitalize Decorator Class**
+- **Trimmer Decorator Class**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
