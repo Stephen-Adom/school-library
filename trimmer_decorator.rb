@@ -2,6 +2,7 @@ require_relative 'base_decorator'
 
 class TrimmerDecorator < BaseDecorator
   def initialize(nameable:)
+    super(nameable: nameable)
     @nameable = nameable
   end
 

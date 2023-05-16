@@ -2,6 +2,7 @@ require_relative 'nameable'
 
 class BaseDecorator < Nameable
   def initialize(nameable:)
+    super()
     @nameable = nameable
   end
 
@@ -9,7 +10,3 @@ class BaseDecorator < Nameable
     @nameable.correct_name
   end
 end
-
-namea = Nameable.new
-dec = BaseDecorator.new(nameable: namea)
-puts dec.correct_name
