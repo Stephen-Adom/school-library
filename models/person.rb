@@ -17,6 +17,11 @@ class Person < Nameable
     @rentals = []
   end
 
+  def add_rental(rental)
+    @rentals << rental unless @rentals.include?(rental)
+    rental.person = self
+  end
+
   def correct_name
     @name
   end
@@ -44,6 +49,12 @@ book2 = Book.new(title: 'Atomic Habits', author: 'James Clear')
 
 rental1 = Rental.new(date: '2017-11-11', book: book1, person: person1)
 rental2 = Rental.new(date: '2017-10-10', book: book2, person: person2)
+
+person1.add_rental(rental1)
+person2.add_rental(rental2)
+
+book1.add_rental(rental1)
+book2.add_rental(rental2)
 
 puts rental1.person.name
 puts rental2.person.name

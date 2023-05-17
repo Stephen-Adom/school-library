@@ -6,4 +6,9 @@ class Book
     @author = author
     @rentals = []
   end
+
+  def add_rental(rental)
+    @rentals << rental unless @rentals.include?(rental)
+    rental.book = self
+  end
 end

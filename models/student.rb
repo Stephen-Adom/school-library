@@ -10,7 +10,7 @@ class Student < Person
 
   def assign_classroom(classroom)
     @classrooom = classroom
-    classroom.students << self
+    classroom.students << self unless classroom.students.include?(self)
   end
 
   def classroom_info
