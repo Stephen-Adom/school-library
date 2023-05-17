@@ -45,6 +45,9 @@ book2 = Book.new(title: 'Atomic Habits', author: 'James Clear')
 rental1 = Rental.new(date: '2017-11-11', book: book1, person: person1)
 rental2 = Rental.new(date: '2017-10-10', book: book2, person: person2)
 
+puts rental1.person.name
+puts rental2.person.name
+
 puts person1.rentals.count
 puts person2.rentals.count
 
