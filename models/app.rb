@@ -27,6 +27,10 @@ class App
     @all_people << person
   end
 
+  def save_new_book(book)
+    @all_books << book
+  end
+
   def app_options
     puts 'Please choose an option by entering a number:'
     puts "1 - List all books\n2 - List all people\n3 - Create a person\n4 - Create a book\n5 - Create a rental\n6 - List all rentals for a given person id\n7 - Exit"

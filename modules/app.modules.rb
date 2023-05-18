@@ -1,5 +1,6 @@
 require_relative '../models/student'
 require_relative '../models/teacher'
+require_relative '../models/book'
 
 module CreateEntity
   def create_person
@@ -39,6 +40,16 @@ module CreateEntity
 
     new_teacher = Teacher.new(age: age, name: name, specialization: specialization)
     save_new_people(new_teacher)
+  end
+
+  def create_book
+    print "Title: "
+    title = gets.chomp
+    print "author: "
+    author = gets.chomp
+
+    new_book = Book.new(title: tite, author: author)
+    save_new_book(new_book)
   end
 end
 
