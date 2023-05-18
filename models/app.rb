@@ -31,11 +31,32 @@ class App
     @all_books << book
   end
 
+  def save_rental(rental)
+    @all_rentals << rental
+  end
+
   def app_options
     puts 'Please choose an option by entering a number:'
     puts "1 - List all books\n2 - List all people\n3 - Create a person\n4 - Create a book\n5 - Create a rental\n6 - List all rentals for a given person id\n7 - Exit"
     print 'Your option '
     @option = gets.chomp
+  end
+
+  def check_option(option)
+    case option.to_i
+    when 1
+      puts option.to_i
+      list_all_books
+    when 2
+      list_all_people
+    when 3
+      create_person
+    when 4
+      create_book
+    when 5
+      create_rental
+
+    end
   end
 
   def run
@@ -50,19 +71,6 @@ class App
       end
 
       check_option(@option)
-    end
-  end
-
-  def check_option(option)
-    case option.to_i
-    when 1
-      puts option.to_i
-      list_all_books
-    when 2
-      list_all_people
-    when 3
-      create_person
-
     end
   end
 end
