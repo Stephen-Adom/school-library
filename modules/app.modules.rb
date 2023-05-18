@@ -140,14 +140,15 @@ module DisplayEntity
       person_id = gets.chomp
       puts 'Rentals:'
 
-      @all_rentals.each do |rental|
-        if rental.person.id.to_i == person_id.to_i
-          puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}" if rental.person.id == person_id.to_i
-          puts "\n"
-        else
-          puts "No rentals for this person!!\n\n"
-        end
+      selected_rentals = @all_rentals.select { |rental| rental.person.id.to_i == person_id.to_i }
+
+      if selected_rentals.empty?
+        puts "No rentals for this person!!\n\n"
+      else
+        selected_rentals.each { |rental| puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}" }
+        puts "\n"
       end
+
     end
   end
 end
