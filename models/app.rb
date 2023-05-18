@@ -55,6 +55,8 @@ class App
       create_book
     when 5
       create_rental
+    when 6
+      list_person_rentals
 
     end
   end

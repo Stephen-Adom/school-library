@@ -1,7 +1,7 @@
 require_relative '../models/student'
 require_relative '../models/teacher'
 require_relative '../models/book'
-require_relative "../models/rental"
+require_relative '../models/rental'
 
 module CreateEntity
   def create_person
@@ -71,7 +71,7 @@ module CreateEntity
         puts "Selected book does not exist!!!\n\n"
       end
 
-      puts "\n\n"
+      puts "\n"
 
       if @all_people.empty?
         puts "No person Info available!!\n\n"
@@ -87,9 +87,10 @@ module CreateEntity
           puts "Selected person does not exist!!!\n\n"
         end
 
-        prints "Date: "
-        date = gets.chomp
+        puts "\n"
 
+        print 'Date: '
+        date = gets.chomp
 
         new_rental = Rental.new(date: date, book: @all_books[select_book_option.to_i], person: @all_people[select_person_option.to_i])
 
@@ -108,6 +109,7 @@ module DisplayEntity
       puts "No Books available!!!\n\n"
     else
       @all_books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
+      puts "\n\n"
     end
   end
 
@@ -116,14 +118,36 @@ module DisplayEntity
       puts "No Person Info available!!!\n\n"
     else
       @all_people.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+      puts "\n"
     end
   end
 
   def list_books_with_options
     @all_books.each_with_index { |book, index| puts "#{index}) Title: #{book.title}, Author: #{book.author}" }
+    puts "\n"
   end
 
   def list_person_with_options
     @all_people.each_with_index { |person, index| puts "#{index}) Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+    puts "\n"
+  end
+
+  def list_person_rentals
+    if @all_rentals.empty?
+      puts "No rentals available!!\n\n"
+    else
+      print 'ID Of person: '
+      person_id = gets.chomp
+      puts 'Rentals:'
+
+      @all_rentals.each do |rental|
+        if rental.person.id.to_i == person_id.to_i
+          puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}" if rental.person.id == person_id.to_i
+          puts "\n"
+        else
+          puts "No rentals for this person!!\n\n"
+        end
+      end
+    end
   end
 end
