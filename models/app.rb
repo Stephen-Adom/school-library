@@ -1,5 +1,11 @@
+require_relative '../modules/app.modules'
+
 class App
-  attr_accessor :name, :option, :all_books, :all_rentals, :all_people
+  attr_accessor :name, :option
+  attr_reader :all_books, :all_rentals, :all_people
+
+  include DisplayEntity
+  include CreateEntity
 
   def initialize
     @name = nil
@@ -8,20 +14,17 @@ class App
     @all_rentals = []
   end
 
-  def list_all_books
-    if @all_books.empty?
-      puts "No Books available!!!\n\n"
-    else
-      @all_books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
+  def check_person_type(person_type)
+    case person_type.to_i
+    when 1
+      create_student
+    when 2
+      create_teacher
     end
   end
 
-  def list_all_people
-    if @all_people.empty?
-      puts "No Person Info available!!!\n\n"
-    else
-      @all_people.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
-    end
+  def save_new_people(person)
+    @all_people << person
   end
 
   def app_options
@@ -53,6 +56,8 @@ class App
       list_all_books
     when 2
       list_all_people
+    when 3
+      create_person
 
     end
   end
