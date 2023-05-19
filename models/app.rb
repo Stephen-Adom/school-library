@@ -9,7 +9,7 @@ class App
 
   def initialize
     @name = nil
-    @all_books = []
+    @all_books = nil
     @all_people = []
     @all_rentals = []
   end
