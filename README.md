@@ -72,7 +72,7 @@ On Linux:
 
 On Windows
 
-Go to [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about) to set up wsl for ubuntu
+Go to [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about) to set up wsl for Ubuntu
 
 ### Setup
 
